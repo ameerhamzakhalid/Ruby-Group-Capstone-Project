@@ -10,13 +10,21 @@ CREATE TABLE Item (
 CREATE TABLE Genre (
    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
    name VARCHAR(255),
-   items INT FOREIGN KEY REFERENCES item(id)
+   items INT FOREIGN KEY REFERENCES Item(id)
+);
+
+
+CREATE TABLE Author (
+  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  item_id INT FOREIGN KEY REFERENCES Item(id),
+  first_name VARCHAR(255),
+  last_name VARCHAR(255)
 );
 
 CREATE TABLE Books (
    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-   author_id INT NULL REFERENCES authors(id),
-   genre_id INT NULL REFERENCES genres(id),
+   author_id INT NULL REFERENCES Authors(id),
+   genre_id INT NULL REFERENCES Genres(id),
    label_id INT NULL REFERENCES labels(id)
    publisher VARCHAR(255),
    publish_date DATE NOT NULL,
