@@ -6,3 +6,9 @@ CREATE TABLE Item (
     publish_date VARCHAR(255),
     archived BOOLEAN,
 )
+
+CREATE TABLE Genre (
+   id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+   name VARCHAR(255),
+   items INT FOREIGN KEY REFERENCES item(id),
+)
