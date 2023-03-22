@@ -44,3 +44,11 @@ CREATE TABLE labels (
   title VARCHAR(255) NOT NULL,
   color VARCHAR(255) NOT NULL
 );
+
+CREATE TABLE Music_album (
+  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  item_id INT FOREIGN KEY REFERENCES Item(id),
+  on_spotify BOOLEAN,
+  publish_date DATE,
+  archived BOOLEAN
+);
