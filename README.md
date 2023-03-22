@@ -1,2 +1,2 @@
-# Ruby Group Capstone Project
- 
+# ruby-capstone
+Group-Ruby Capstone Project
