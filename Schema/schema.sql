@@ -5,13 +5,13 @@ CREATE TABLE Item (
     label VARCHAR(255),
     publish_date VARCHAR(255),
     archived BOOLEAN
-)
+);
 
 CREATE TABLE Genre (
    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
    name VARCHAR(255),
    items INT FOREIGN KEY REFERENCES item(id)
-)
+);
 
 CREATE TABLE Books (
    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
@@ -22,4 +22,10 @@ CREATE TABLE Books (
    publish_date DATE NOT NULL,
    cover_state VARCHAR(255),
    archived BOOLEAN NOT NULL
-)
+);
+
+CREATE TABLE labels (
+  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  title VARCHAR(255) NOT NULL,
+  color VARCHAR(255) NOT NULL
+);
