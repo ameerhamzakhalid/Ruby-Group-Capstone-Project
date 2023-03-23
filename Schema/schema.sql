@@ -1,0 +1,54 @@
+CREATE TABLE Item (
+    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    genre VARCHAR(255),
+    author VARCHAR(255),
+    label VARCHAR(255),
+    publish_date VARCHAR(255),
+    archived BOOLEAN
+);
+
+CREATE TABLE Genre (
+   id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+   name VARCHAR(255),
+   items INT FOREIGN KEY REFERENCES Item(id)
+);
+
+CREATE TABLE Game (
+  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  item_id INT FOREIGN KEY REFERENCES Item(id),
+  multiplayer VARCHAR(255),
+  last_played_at DATE,
+  publish_date DATE,
+);
+
+CREATE TABLE Author (
+  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  item_id INT FOREIGN KEY REFERENCES Item(id),
+  first_name VARCHAR(255),
+  last_name VARCHAR(255)
+);
+
+CREATE TABLE Books (
+   id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+   author_id INT NULL REFERENCES Authors(id),
+   genre_id INT NULL REFERENCES Genres(id),
+   label_id INT NULL REFERENCES labels(id)
+   publisher VARCHAR(255),
+   publish_date DATE NOT NULL,
+   cover_state VARCHAR(255),
+   archived BOOLEAN NOT NULL
+);
+
+CREATE TABLE labels (
+  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  title VARCHAR(255) NOT NULL,
+  color VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Music_album (
+  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  item_id INT FOREIGN KEY REFERENCES Item(id),
+  on_spotify BOOLEAN,
+  publish_date DATE,
+  archived BOOLEAN
+);
