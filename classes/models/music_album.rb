@@ -1,4 +1,4 @@
-require '../item'
+require '../item' / r
 class MusicAlbum < Item
   attr_reader :on_spotify, :id
 
