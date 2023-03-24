@@ -24,4 +24,10 @@ describe 'Unit testing for Author Class' do
       expect(@author).to be_kind_of Item
     end
   end
+
+  context 'Last name of author' do
+    it 'should be "Olaoye"' do
+      expect(@author.last_name).to eql 'Olaoye'
+    end
+  end
 end
