@@ -11,6 +11,10 @@ describe Book do
       expect(@book).to be_an_instance_of(Book)
     end
 
+    it 'should have a cover state' do
+        expect(@book.cover_state).to eq('good')
+      end
+  
     it 'should have a publisher' do
       expect(@book.publisher).to eq('Crown Business')
     end
