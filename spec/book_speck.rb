@@ -8,7 +8,7 @@ describe Book do
     end
 
     it 'should return false unless @archived || cover_state == bad' do
-        expect(@book.can_be_archived?).to eq false
+      expect(@book.can_be_archived?).to eq false
     end
 
 
@@ -17,9 +17,9 @@ describe Book do
     end
 
     it 'should have a cover state' do
-        expect(@book.cover_state).to eq('good')
+      expect(@book.cover_state).to eq('good')
     end
-  
+
     it 'should have a publisher' do
       expect(@book.publisher).to eq('Crown Business')
     end
