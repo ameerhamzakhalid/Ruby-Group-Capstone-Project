@@ -5,6 +5,12 @@ describe 'Unit testing for Author Class' do
     @author = Author.new('Oluwatoyin', 'Olaoye')
   end
 
+  context 'First name of author' do
+    it 'should be "Oluwatoyin"' do
+      expect(@author.first_name).to eql 'Oluwatoyin'
+    end
+  end
+
   context 'initialize object' do
     it 'should be an instance of Author' do
       expect(@author).to be_instance_of Author
