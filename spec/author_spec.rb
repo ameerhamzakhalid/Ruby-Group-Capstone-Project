@@ -1,33 +1,16 @@
-require_relative './classes/author'
+require_relative '.././author/author'
+require_relative '.././author/author_controller'
 
-describe 'Unit testing for Author Class' do
-  before :each do
-    @author = Author.new('Oluwatoyin', 'Olaoye')
+describe Author do
+  include AuthorsController
+  it 'Should be an instance of Author' do
+    author = Author.new('Azel', 'Grey')
+    expect(author).to be_instance_of Author
   end
 
-  context 'First name of author' do
-    it 'should be "Oluwatoyin"' do
-      expect(@author.first_name).to eql 'Oluwatoyin'
-    end
-  end
-
-  context 'initialize object' do
-    it 'should be an instance of Author' do
-      expect(@author).to be_instance_of Author
-    end
-
-    it 'should not be an instance of Item' do
-      expect(@author).not_to be_instance_of Item
-    end
-
-    it 'should be a kind of Item' do
-      expect(@author).to be_kind_of Item
-    end
-  end
-
-  context 'Last name of author' do
-    it 'should be "Olaoye"' do
-      expect(@author.last_name).to eql 'Olaoye'
-    end
+  it 'Shoud store author' do
+    add_author(Author.new('Azel', 'Grey'))
+    expect(File.exist?('./author/authors.json') && File.read('./author/authors.json') != '').to eq true
+    File.write('./author/authors.json', '')
   end
 end
